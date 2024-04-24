@@ -1,32 +1,26 @@
 let balance = 500.00;
 
-class Withdrawal {
- // Pass in the account that the withdrawal this for
- constructor(amount, account) {
-  this.amount = amount;
-  this.account = account;
-}
+class Transaction {
 
-// Update the balance in the account
-commit() {
-  this.account.balance -= this.amount;
-}
-
-
-}
-
-
-class Deposit {
-
-  // Pass in the account that the deposit this for
   constructor(amount, account) {
-    this.amount = amount;
+    this.amount  = amount;
     this.account = account;
   }
 
-  // Update the balance in the account
+}
+
+class Deposit extends Transaction {
+
   commit() {
     this.account.balance += this.amount;
+  }
+
+}
+
+class Withdrawal extends Transaction {
+
+  commit() {
+    this.account.balance -= this.amount;
   }
 
 }
